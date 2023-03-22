@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:18-alpine
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -14,6 +14,13 @@ RUN npm install
 
 # Bundle app source
 COPY . .
+ENV USERBD ""
+ENV HOSTBD ""
+ENV NAMEBD ""
+ENV PASSWORD ""
+ENV USERMAIL ""
+ENV PASSMAIL ""
+ENV SECRET ""
 
 EXPOSE 8080
-CMD node index.js 
+CMD ["node","index.js"]
